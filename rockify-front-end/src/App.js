@@ -14,12 +14,6 @@ function App() {
   const [durationLowerBound, setDurationLowerBound] = useState(0);
   const [durationUpperBound, setDurationUpperBound] = useState(1000000000);
 
-  useEffect(() => {
-    Axios.get('http://localhost:3002/api/get').then((response) => {
-      setAlbumsList(response.data)
-    })
-  }, [])
-
   const submitArtist = () => {
     Axios.post('http://localhost:3002/api/insert', {
       artist: artistToInsert
