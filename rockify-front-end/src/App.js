@@ -16,8 +16,8 @@ function App() {
   const [artistToGet, setArtistToGet] = useState("");
   const [trackToGet, setTrackToGet] = useState("");
   const [yearFromGet, setYearFromGet] = useState(0);
-  const [yearToGet, setYearToGet] = useState(new Date().getFullYear());
-  const [popularityRating, setPopularityRating] = useState(100);
+  const [yearToGet, setYearToGet] = useState(2021);
+  const [popularityRating, setPopularityRating] = useState(0);
   const [durationLowerBound, setDurationLowerBound] = useState(0);
   const [durationUpperBound, setDurationUpperBound] = useState(1000000000);
 
@@ -34,7 +34,9 @@ function App() {
   };
 
   const deleteArtist = () => {
-    Axios.delete('http://localhost:5000/api/delete/${artistToDelete}');
+    Axios.delete('http://localhost:5000/api/delete', {data: {
+      artist: artistToDelete
+    }});
   };
 
   const getAlbums = () => {
@@ -108,12 +110,12 @@ function App() {
         <button onClick={deleteArtist}> Delete </button>
 
         <p> Update user's preference for an artist</p>
-        <label> Your Full Name: </label>
+        <label> Username: </label>
         <input type="text" name= "UpdateName" onChange = {(e) => {
           setUserName(e.target.value)
         }} />
         <br></br>
-        <label> Artist to Update: </label>
+        <label> Artist Name: </label>
         <input type="text" name="artistToUpdate" onChange = {(e) => {
           setArtistToUpdate(e.target.value)
         }} />
@@ -155,6 +157,14 @@ function App() {
         }} />
         <br></br>
         <button onClick={getAlbums}> Search </button>
+
+        {albumsList.map((val) => {
+          return (
+            <div className = "card">
+              <h3> Album Name: {val.AlbumName}</h3>
+            </div>
+          );
+        })}
 
         <p>Search for Tracks</p>
         <label> Track: </label>
@@ -200,14 +210,6 @@ function App() {
           setTempo(e.target.value)
         }} />
         <button onClick={getAlbumsWithTempo}> Return </button>
-
-        {albumsList.map((val) => {
-          return (
-            <div className = "card">
-              <h3> Album Name: {val.album}</h3>
-            </div>
-          );
-        })}
 
         {tracksList.map((val) => {
           return (
