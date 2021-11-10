@@ -27,14 +27,14 @@ function App() {
   };
 
   const getAlbums = () => {
-    Axios.get('http://localhost:5000/api/get', {
+    Axios.get('http://localhost:5000/api/get', {params: {
       artist: artistToGet,
       yearFrom: yearFromGet,
       yearTo: yearToGet,
       popularityRating: popularityRating,
       durationFrom: durationLowerBound,
       durationTo: durationUpperBound
-    }).then((response) => {
+    }}).then((response) => {
       setAlbumsList(response.data)
     })
   };
