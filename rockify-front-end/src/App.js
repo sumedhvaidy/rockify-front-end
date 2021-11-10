@@ -44,7 +44,7 @@ function App() {
   };
 
   const updateUserPreference = () => {
-    Axios.patch('http://localhost:3002/api/update', {
+    Axios.patch('http://localhost:5000/api/update', {
       userName: userName,
       artist: artistToUpdate,
       favorite: isFavorite
