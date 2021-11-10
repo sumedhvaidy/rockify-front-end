@@ -15,7 +15,7 @@ function App() {
   const [durationUpperBound, setDurationUpperBound] = useState(1000000000);
 
   const submitArtist = () => {
-    Axios.post('http://localhost:3002/api/insert', {
+    Axios.post('http://localhost:5000/api/insert', {
       artist: artistToInsert
     }).then(() => {
       alert('success insert')
@@ -23,11 +23,11 @@ function App() {
   };
 
   const deleteArtist = () => {
-    Axios.delete('http://localhost:3002/api/delete/${artistToDelete}');
+    Axios.delete('http://localhost:5000/api/delete/${artistToDelete}');
   };
 
   const getAlbums = () => {
-    Axios.get('http://localhost:3002/api/get', {
+    Axios.get('http://localhost:5000/api/get', {
       artist: artistToGet,
       yearFrom: yearFromGet,
       yearTo: yearToGet,
