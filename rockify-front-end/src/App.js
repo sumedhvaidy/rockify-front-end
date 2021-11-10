@@ -21,6 +21,10 @@ function App() {
   const [durationLowerBound, setDurationLowerBound] = useState(0);
   const [durationUpperBound, setDurationUpperBound] = useState(1000000000);
 
+  const [artistPopularityRating, setArtistPopularityRating] = useState(100);
+  const [trackPopularityRating, setTrackPopularityRating] = useState(100);
+  const [tempo, setTempo] = useState(0);
+
   const submitArtist = () => {
     Axios.post('http://localhost:5000/api/insert', {
       artist: artistToInsert
@@ -56,6 +60,23 @@ function App() {
       setTracksList(response.data)
     })
   };
+
+  const getTracksWithPopularity = () => {
+    Axios.get('http://localhost:5000/api/getTracksWithPopularity', {params: {
+      ArtistPopularityRating: artistPopularityRating,
+      trackPopularityRating: trackPopularityRating,
+    }}).then((response) => {
+      setTracksList(response.data)
+    })
+  }
+
+  const getAlbumsWithTempo = () => {
+    Axios.get('http://localhost:5000/api/getAlbumsWithTempo', {params: {
+      tempo: tempo,
+    }}).then((response) => {
+      setAlbumsList(response.data)
+    })
+  }
 
   const updateUserPreference = () => {
     Axios.patch('http://localhost:5000/api/update', {
@@ -160,6 +181,25 @@ function App() {
         }} />
         <br></br>
         <button onClick={getTracks}> Search </button>
+
+        <p> Get Tracks based on Artist Popularity & Track Popularity </p>
+        <label> Artist Popularity Rating </label>
+        <input type="number" name = "Popularity" onChange = {(e) => {
+          setArtistPopularityRating(e.target.value)
+        }} />
+        <br></br>
+        <label> Track Popularity Rating </label>
+        <input type="number" name = "Popularity" onChange = {(e) => {
+          setTrackPopularityRating(e.target.value)
+        }} />
+        <button onClick={getTracksWithPopularity}> Return </button>
+
+        <p> Get Albums where all songs above certain tempo </p>
+        <label> Tempo: </label>
+        <input type="number" name = "Popularity" onChange = {(e) => {
+          setTempo(e.target.value)
+        }} />
+        <button onClick={getAlbumsWithTempo}> Return </button>
 
         {albumsList.map((val) => {
           return (
