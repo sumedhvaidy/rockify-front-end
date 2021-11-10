@@ -11,6 +11,7 @@ function App() {
   const [artistToUpdate, setArtistToUpdate] = useState("");
   const [isFavorite, setIsFavorite] = useState(false);
 
+  const [albumNameToGet, setAlbumNameToGet] = useState("");
   const [artistToGet, setArtistToGet] = useState("");
   const [yearFromGet, setYearFromGet] = useState(0);
   const [yearToGet, setYearToGet] = useState(new Date().getFullYear());
@@ -32,6 +33,7 @@ function App() {
 
   const getAlbums = () => {
     Axios.get('http://localhost:5000/api/get', {params: {
+      albumName: albumNameToGet,
       artist: artistToGet,
       yearFrom: yearFromGet,
       yearTo: yearToGet,
@@ -96,6 +98,11 @@ function App() {
         <button onClick={updateUserPreference}> Update </button>
 
         <p>Search for Albums</p>
+        <label> Album Name: </label>
+        <input type="text" name = "AlbumName" onChange = {(e) => {
+          setAlbumNameToGet(e.target.value)
+        }} />
+        <br></br>
         <label> Artist: </label>
         <input type="text" name = "Artist" onChange = {(e) => {
           setArtistToGet(e.target.value)
