@@ -6,6 +6,7 @@ function App() {
   const [artistToInsert, setArtisttoInsert] = useState('');
   const [artistToDelete, setArtistToDelete] = useState('');
   const [albumsList, setAlbumsList] = useState([]);
+  const [tracksList, setTracksList] = useState([]);
 
   const [userName, setUserName] = useState("");
   const [artistToUpdate, setArtistToUpdate] = useState("");
@@ -13,6 +14,7 @@ function App() {
 
   const [albumNameToGet, setAlbumNameToGet] = useState("");
   const [artistToGet, setArtistToGet] = useState("");
+  const [trackToGet, setTrackToGet] = useState("");
   const [yearFromGet, setYearFromGet] = useState(0);
   const [yearToGet, setYearToGet] = useState(new Date().getFullYear());
   const [popularityRating, setPopularityRating] = useState(100);
@@ -32,16 +34,30 @@ function App() {
   };
 
   const getAlbums = () => {
+<<<<<<< HEAD
     Axios.get('http://localhost:5000/api/get', {params: {
       albumName: albumNameToGet,
+=======
+    Axios.get('http://localhost:5000/api/getAlbums', {params: {
+>>>>>>> 1894b36073aabfa9fe83af809dcadaf94801ea51
       artist: artistToGet,
       yearFrom: yearFromGet,
       yearTo: yearToGet,
       popularityRating: popularityRating,
-      durationFrom: durationLowerBound,
-      durationTo: durationUpperBound
     }}).then((response) => {
       setAlbumsList(response.data)
+    })
+  };
+
+  const getTracks = () => {
+    Axios.get('http://localhost:5000/api/getTracks', {params: {
+      track: trackToGet,
+      artist: artistToGet,
+      popularityRating: popularityRating,
+      durationLowerBound: durationLowerBound,
+      durationUpperBound: durationUpperBound,
+    }}).then((response) => {
+      setTracksList(response.data)
     })
   };
 
@@ -85,7 +101,7 @@ function App() {
           setArtistToUpdate(e.target.value)
         }} />
         <br></br>
-        <label for="favorite"> Is Artist Favorite: </label> 
+        <label for="favorite"> Is Artist Favorite: </label>
         <select name="favorite" id="favorite">
           <option value="yes" onSelect={(e) => {
             setIsFavorite(true)
@@ -116,7 +132,25 @@ function App() {
           setYearToGet(e.target.value)
         }}/>
         <br></br>
-        <label> Popularity Rating [0 - 100] </label>
+        <label> Popularity Rating </label>
+        <input type="number" name = "Popularity" onChange = {(e) => {
+          setPopularityRating(e.target.value)
+        }} />
+        <br></br>
+        <button onClick={getAlbums}> Search </button>
+
+        <p>Search for Tracks</p>
+        <label> Track: </label>
+        <input type="text" name = "Track" onChange = {(e) => {
+          setTrackToGet(e.target.value)
+        }} />
+        <br></br>
+        <label> Artist: </label>
+        <input type="text" name = "Artist" onChange = {(e) => {
+          setArtistToGet(e.target.value)
+        }} />
+        <br></br>
+        <label> Popularity Rating </label>
         <input type="number" name = "Popularity" onChange = {(e) => {
           setPopularityRating(e.target.value)
         }} />
@@ -129,12 +163,20 @@ function App() {
           setDurationUpperBound(e.target.value)
         }} />
         <br></br>
-        <button onClick={getAlbums}> Search </button>
-        
+        <button onClick={getTracks}> Search </button>
+
         {albumsList.map((val) => {
           return (
             <div className = "card">
               <h3> Album Name: {val.album}</h3>
+            </div>
+          );
+        })}
+
+        {tracksList.map((val) => {
+          return (
+            <div className = "card">
+              <h3> Track Name: {val.track}</h3>
             </div>
           );
         })}
