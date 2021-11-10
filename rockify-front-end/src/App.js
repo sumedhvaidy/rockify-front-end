@@ -87,6 +87,15 @@ function App() {
       favorite: isFavorite
     })
   }
+  
+  const handleDropdownChange = (e) => {
+    console.log("Changed" + e.target.value);
+    if(e.target.value === "yes") {
+      setIsFavorite(true);
+    } else if(e.target.value === "no") {
+      setIsFavorite(false);
+    }
+  }
 
   return (
     <div className="App">
@@ -121,13 +130,9 @@ function App() {
         }} />
         <br></br>
         <label for="favorite"> Is Artist Favorite: </label>
-        <select name="favorite" id="favorite">
-          <option value="yes" onSelect={(e) => {
-            setIsFavorite(true)
-          }}>Yes</option>
-          <option value="no" onSelect={(e) => {
-            setIsFavorite(false)
-          }}>No</option>
+        <select name="favorite" id="favorite" onChange={handleDropdownChange}>
+          <option value="yes" selected="selected">Yes</option>
+          <option value="no">No</option>
         </select>
         <br></br>
         <button onClick={updateUserPreference}> Update </button>
