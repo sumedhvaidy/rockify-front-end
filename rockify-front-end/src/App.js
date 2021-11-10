@@ -7,6 +7,10 @@ function App() {
   const [artistToDelete, setArtistToDelete] = useState('');
   const [albumsList, setAlbumsList] = useState([]);
 
+  const [userName, setUserName] = useState("");
+  const [artistToUpdate, setArtistToUpdate] = useState("");
+  const [isFavorite, setIsFavorite] = useState(false);
+
   const [artistToGet, setArtistToGet] = useState("");
   const [yearFromGet, setYearFromGet] = useState(0);
   const [yearToGet, setYearToGet] = useState(new Date().getFullYear());
@@ -39,6 +43,14 @@ function App() {
     })
   };
 
+  const updateUserPreference = () => {
+    Axios.patch('http://localhost:3002/api/update', {
+      userName: userName,
+      artist: artistToUpdate,
+      favorite: isFavorite
+    })
+  }
+
   return (
     <div className="App">
 
@@ -60,6 +72,28 @@ function App() {
         }} />
         <button onClick={deleteArtist}> Delete </button>
 
+        <p> Update user's preference for an artist</p>
+        <label> Your Full Name: </label>
+        <input type="text" name= "UpdateName" onChange = {(e) => {
+          setUserName(e.target.value)
+        }} />
+        <br></br>
+        <label> Artist to Update: </label>
+        <input type="text" name="artistToUpdate" onChange = {(e) => {
+          setArtistToUpdate(e.target.value)
+        }} />
+        <br></br>
+        <label for="favorite"> Is Artist Favorite: </label> 
+        <select name="favorite" id="favorite">
+          <option value="yes" onSelect={(e) => {
+            setIsFavorite(true)
+          }}>Yes</option>
+          <option value="no" onSelect={(e) => {
+            setIsFavorite(false)
+          }}>No</option>
+        </select>
+        <br></br>
+        <button onClick={updateUserPreference}> Update </button>
 
         <p>Search for Albums</p>
         <label> Artist: </label>
