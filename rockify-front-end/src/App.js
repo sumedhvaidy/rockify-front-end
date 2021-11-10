@@ -34,12 +34,8 @@ function App() {
   };
 
   const getAlbums = () => {
-<<<<<<< HEAD
-    Axios.get('http://localhost:5000/api/get', {params: {
-      albumName: albumNameToGet,
-=======
     Axios.get('http://localhost:5000/api/getAlbums', {params: {
->>>>>>> 1894b36073aabfa9fe83af809dcadaf94801ea51
+      albumName: albumNameToGet,
       artist: artistToGet,
       yearFrom: yearFromGet,
       yearTo: yearToGet,
