@@ -87,7 +87,7 @@ function App() {
       favorite: isFavorite
     })
   }
-  
+
   const handleDropdownChange = (e) => {
     console.log("Changed" + e.target.value);
     if(e.target.value === "yes") {
@@ -98,133 +98,13 @@ function App() {
   }
 
   return (
-    <div className="App">
-
-      <div className = "searchbar">
-        <h1> Rockify Demo </h1>
-
-        <p> Insert an artist into the database</p>
-        <label> Artist: </label>
-        <input type="text" name = "InsertArtist" onChange = {(e) => {
-          setArtisttoInsert(e.target.value)
-        }}/>
-        <button onClick={submitArtist}> Insert </button>
-
-
-        <p> Delete an artist from the database</p>
-        <label> Artist: </label>
-        <input type="text" name = "DeleteArtist" onChange= {(e) => {
-          setArtistToDelete(e.target.value)
-        }} />
-        <button onClick={deleteArtist}> Delete </button>
-
-        <p> Update user's preference for an artist</p>
-        <label> Username: </label>
-        <input type="text" name= "UpdateName" onChange = {(e) => {
-          setUserName(e.target.value)
-        }} />
-        <br></br>
-        <label> Artist Name: </label>
-        <input type="text" name="artistToUpdate" onChange = {(e) => {
-          setArtistToUpdate(e.target.value)
-        }} />
-        <br></br>
-        <label for="favorite"> Is Artist Favorite: </label>
-        <select name="favorite" id="favorite" onChange={handleDropdownChange}>
-          <option value="yes" selected="selected">Yes</option>
-          <option value="no">No</option>
-        </select>
-        <br></br>
-        <button onClick={updateUserPreference}> Update </button>
-
-        <p>Search for Albums</p>
-        <label> Album Name: </label>
-        <input type="text" name = "AlbumName" onChange = {(e) => {
-          setAlbumNameToGet(e.target.value)
-        }} />
-        <br></br>
-        <label> Artist: </label>
-        <input type="text" name = "Artist" onChange = {(e) => {
-          setArtistToGet(e.target.value)
-        }} />
-        <br></br>
-        <label> Year [From - To]: </label>
-        <input type="number" name = "DateStart" onChange = {(e) => {
-          setYearFromGet(e.target.value)
-        }}/>
-        <input type="number" name = "DateEnd" onChange = {(e) => {
-          setYearToGet(e.target.value)
-        }}/>
-        <br></br>
-        <label> Popularity Rating </label>
-        <input type="number" name = "Popularity" onChange = {(e) => {
-          setPopularityRating(e.target.value)
-        }} />
-        <br></br>
-        <button onClick={getAlbums}> Search </button>
-
-        {albumsList.map((val) => {
-          return (
-            <div className = "card">
-              <h3> Album Name: {val.AlbumName}</h3>
-            </div>
-          );
-        })}
-
-        <p>Search for Tracks</p>
-        <label> Track: </label>
-        <input type="text" name = "Track" onChange = {(e) => {
-          setTrackToGet(e.target.value)
-        }} />
-        <br></br>
-        <label> Artist: </label>
-        <input type="text" name = "Artist" onChange = {(e) => {
-          setArtistToGet(e.target.value)
-        }} />
-        <br></br>
-        <label> Popularity Rating </label>
-        <input type="number" name = "Popularity" onChange = {(e) => {
-          setPopularityRating(e.target.value)
-        }} />
-        <br></br>
-        <label> Duration [in ms] </label>
-        <input type="number" name = "DurationStart" onChange = {(e) => {
-          setDurationLowerBound(e.target.value)
-        }}/>
-        <input type="number" name = "DurationEnd" onChange = {(e) => {
-          setDurationUpperBound(e.target.value)
-        }} />
-        <br></br>
-        <button onClick={getTracks}> Search </button>
-
-        <p> Get Tracks based on Artist Popularity & Track Popularity </p>
-        <label> Artist Popularity Rating </label>
-        <input type="number" name = "Popularity" onChange = {(e) => {
-          setArtistPopularityRating(e.target.value)
-        }} />
-        <br></br>
-        <label> Track Popularity Rating </label>
-        <input type="number" name = "Popularity" onChange = {(e) => {
-          setTrackPopularityRating(e.target.value)
-        }} />
-        <button onClick={getTracksWithPopularity}> Return </button>
-
-        <p> Get Albums where all songs above certain tempo </p>
-        <label> Tempo: </label>
-        <input type="number" name = "Popularity" onChange = {(e) => {
-          setTempo(e.target.value)
-        }} />
-        <button onClick={getAlbumsWithTempo}> Return </button>
-
-        {tracksList.map((val) => {
-          return (
-            <div className = "card">
-              <h3> Track Name: {val.track}</h3>
-            </div>
-          );
-        })}
-
-      </div>
+    <div className = "App">
+      <menu>
+        <li> <img src="rockifylogo.ico" width="50px" /> </li>
+        <li> Search </li>
+        <li> Recommend </li>
+        <li> My Likes </li>
+        </menu>
     </div>
   );
 }
