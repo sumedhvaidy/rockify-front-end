@@ -26,8 +26,24 @@ li {
   text-decoration: none;
 }
 
+.menu li a{
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.menu li a:hover{
+  color: darkgreen;
+}
+
 .login {
   margin-left: auto;
+}
+
+.current {
+  color: darkgreen;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 h1 {
