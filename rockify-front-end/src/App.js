@@ -99,12 +99,15 @@ function App() {
 
   return (
     <div className = "App">
-      <menu>
+      <div class = "menu">
         <li> <img src="rockifylogo.ico" width="50px" /> </li>
         <li> Search </li>
         <li> Recommend </li>
         <li> My Likes </li>
-        </menu>
+        <div class = "login">
+          <li> Login </li>
+        </div>
+      </div>
     </div>
   );
 }

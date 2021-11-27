@@ -7,7 +7,7 @@ body {
   color: white;
 }
 
-menu {
+.menu {
   display: flex;
   background: lightgreen;
   font-family: Helvetica;
@@ -24,6 +24,10 @@ li {
   line-height: 50px;
   height: 50px;
   text-decoration: none;
+}
+
+.login {
+  margin-left: auto;
 }
 
 h1 {
