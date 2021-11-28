@@ -36,16 +36,11 @@ li {
   color: darkgreen;
 }
 
-.login {
+.logout {
   margin-left: auto;
-}
-
-.current {
-  color: darkgreen;
-  text-decoration: none;
-  font-weight: bold;
 }
 
 h1 {
   color: lightgreen;
+  text-align: center;
 }
