@@ -25,43 +25,57 @@ const Navigation = () => (
 const Login = () => (
   <div className='login'>
     <h1> Login </h1>
-    <label for="username">Username: </label>
-    <input type="text" />
+    <div class = "center">
+      <label for="username">Username: </label>
+      <input type="text" />
+    </div>
     <br></br>
-    <label for="password">Password: </label>
-    <input type="password" />
+    <div class = "center">
+      <label for="password">Password: </label>
+      <input type="password" />
+    </div>
     <br></br>
-    <button> Submit </button>
+    <div class = "center">
+      <button> Submit </button>
+    </div>
   </div>
 );
 
 const Search = () => (
   <div className='search'>
     <h1> Search for a track, artist, or album </h1>
-    <input type="text" placeholder="Search..."/>
-    <button> Search </button>
+    <div class = "center">
+      <input type="text" placeholder="Search..."/>
+      <button> Search </button>
+    </div>
     <br></br>
-    <input type="checkbox" id="Track" name="Track"/>
-    <label for="Track"> Track </label>
-    <input type="checkbox" id="Artist" name="Artist"/>
-    <label for="Artist"> Artist </label>
-    <input type="checkbox" id="Album" name="Album"/>
-    <label for="Album"> Album </label>
+    <div class = "center">
+      <input type="checkbox" id="Track" name="Track"/>
+      <label for="Track"> Track </label>
+      <input type="checkbox" id="Artist" name="Artist"/>
+      <label for="Artist"> Artist </label>
+      <input type="checkbox" id="Album" name="Album"/>
+      <label for="Album"> Album </label>
+    </div>
   </div>
 );
 
 const Recommend = () => (
   <div className='recommend'>
     <h1> Recommend a track, artist, or album </h1>
-    <input type="text" placeholder="Recommend..."/>
-    <button> Recommend </button>
+    <div class = "center">
+      <input type="text" placeholder="Recommend..."/>
+      <button> Recommend </button>
+    </div>
     <br></br>
-    <input type="radio" id="TrackSearch" name="recommendSelection"/>
-    <label for="Track"> Track </label>
-    <input type="radio" id="Artist" name="recommendSelection"/>
-    <label for="Artist"> Artist </label>
-    <input type="radio" id="Album" name="recommendSelection"/>
-    <label for="Album"> Album </label>
+    <div class = "center">
+      <input type="radio" id="TrackSearch" name="recommendSelection"/>
+      <label for="Track"> Track </label>
+      <input type="radio" id="Artist" name="recommendSelection"/>
+      <label for="Artist"> Artist </label>
+      <input type="radio" id="Album" name="recommendSelection"/>
+      <label for="Album"> Album </label>
+    </div>
   </div>
 );
 
