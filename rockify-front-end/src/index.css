@@ -1,0 +1,51 @@
+.index {
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #000000;
+  color: white;
+}
+
+.menu {
+  display: flex;
+  background: lightgreen;
+  font-family: Helvetica;
+  list-style-type: none;
+  padding: 0px;
+  overflow: hidden;
+}
+
+.menu li a{
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.menu li a:hover{
+  color: darkgreen;
+}
+
+li {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 5px 10px;
+  line-height: 50px;
+  height: 50px;
+  text-decoration: none;
+}
+
+.logout {
+  margin-left: auto;
+}
+
+h1 {
+  color: lightgreen;
+  text-align: center;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
