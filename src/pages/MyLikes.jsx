@@ -86,7 +86,7 @@ function MyLikes() {
                 <p> {val.TrackName} &nbsp;</p>
                 <p> {val.ArtistName} </p>
                 <input type="radio" id="like" name={val.TrackId} onClick={
-                  () => interact(val.TrackId, "LIKE")}/>
+                  () => interact(val.TrackId, "LIKE")} checked/>
                 <input type="radio" id="dislike" name={val.TrackId} onClick={
                   () => interact(val.TrackId, "DISLIKE")}/>
               </div>
@@ -98,7 +98,7 @@ function MyLikes() {
               <div class="center">
                 <p> {val.ArtistName} </p>
                 <input type="radio" id="like" name={val.ArtistId} onClick={
-                  () => interact(val.ArtistId, "LIKE")}/>
+                  () => interact(val.ArtistId, "LIKE")} checked/>
                 <input type="radio" id="dislike" name={val.ArtistId} onClick={
                   () => interact(val.ArtistId, "DISLIKE")}/>
               </div>
@@ -111,7 +111,7 @@ function MyLikes() {
                 <p> {val.AlbumName} &nbsp;</p>
                 <p> {val.ArtistName} </p>
                 <input type="button" id="like" name={val.AlbumId} onClick={
-                  () => interact(val.AlbumId, "LIKE")}/>
+                  () => interact(val.AlbumId, "LIKE")} checked/>
                 <input type="button" id="dislike" name={val.AlbumId} onClick={
                   () => interact(val.AlbumId, "DISLIKE")}/>
               </div>
