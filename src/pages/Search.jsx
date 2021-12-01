@@ -127,7 +127,17 @@ function Search() {
         }}/>
         <br/>
       </div>
-      
+      <br/>
+
+      <div class="list">
+        <div class="center">
+          <p> Track &nbsp;</p>
+          <p> Artist </p>
+          <input type="radio" id="like" name="preference"/>
+          <input type="radio" id="dislike" name="preference"/>
+        </div>
+      </div>
+
       {searchList.map((val) => {
           return (
             <div className = "card">

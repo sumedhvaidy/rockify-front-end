@@ -36,8 +36,10 @@ li {
   text-decoration: none;
 }
 
-.logout {
-  margin-left: auto;
+.list {
+  font-size:200%;
+  color: black;
+  background-color: lightgreen;
 }
 
 h1 {
@@ -48,4 +50,5 @@ h1 {
 .center {
   display: flex;
   justify-content: center;
+  align-items: center;
 }

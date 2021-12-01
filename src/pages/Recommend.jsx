@@ -21,6 +21,7 @@ function Recommend() {
       <div class="center">
         <button> Recommend </button>
       </div>
+      <br/>
       <div class="center">
   	    <input type="radio" id="track" name="type" onClick = {(e) => {
           setType("track")
@@ -34,6 +35,16 @@ function Recommend() {
           setType("album")
         }}/>
   	    <label for="Album"> Album </label>
+      </div>
+      <br/>
+
+      <div class="list">
+        <div class="center">
+          <p> Track &nbsp;</p>
+          <p> Artist </p>
+          <input type="radio" id="like" name="preference"/>
+          <input type="radio" id="dislike" name="preference"/>
+        </div>
       </div>
 
       {recommendList.map((val) => {
