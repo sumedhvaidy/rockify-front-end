@@ -20,14 +20,14 @@ function Register() {
         <h1> Register </h1>
       </div>
       <div class="center">
-        <label>Username: </label>
+        <label>Username: &nbsp; </label>
         <input type="text" name = "username" onChange = {(e) => {
           setUsername(e.target.value)
         }}/>
       </div>
       <br></br>
       <div class="center">
-        <label>Password: </label>
+        <label>Password: &nbsp; </label>
         <input type="text" name = "password" onChange = {(e) => {
           setPassword(e.target.value)
         }}/>

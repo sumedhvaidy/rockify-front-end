@@ -63,7 +63,7 @@ function MyLikes() {
     <div className='mylikes'>
       <h1> My Likes </h1>
       <div class="center">
-        <button class="testing" onClick={getLikedList}> Refresh </button>
+        <button class="buttondeco" onClick={getLikedList}> Refresh </button>
   	    <input type="radio" id="track" name="type" onClick = {(e) => {
           setType("track")
         }}/>

@@ -69,10 +69,6 @@ function Search() {
     }
   };
 
-  const advancedSearch = () => {
-
-  }
-
   return (
 		<div className='search'>
 	    <h1> Search for a track, artist, or album </h1>
@@ -80,10 +76,9 @@ function Search() {
   	    <input type="text" placeholder="Search..." onChange = {(e) => {
           setSearchFor(e.target.value)
         }}/>
-  	    <button onClick={search}> Search </button>
-        <button onClick={advancedSearch}> Advanced Search </button>
+  	    <button class="buttondeco" onClick={search}> Search </button>
       </div>
-	    <br></br>
+	    <br/>
       <div class="center">
         <input type="radio" id="track" name="type" onClick = {(e) => {
           setType("track")
