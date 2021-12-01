@@ -159,7 +159,7 @@ function Search() {
           return (
             <div className = "card">
               <div class="center">
-                <p> {val.trackName} &nbsp;</p>
+                <p> {val.TrackName} &nbsp;</p>
                 <input type="radio" id="like" name="preference"/>
                 <input type="radio" id="dislike" name="preference"/>
               </div>
