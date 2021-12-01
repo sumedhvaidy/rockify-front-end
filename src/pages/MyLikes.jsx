@@ -1,13 +1,16 @@
 import React, {useState, useEffect} from "react";
 import Axios from 'axios';
+import ls, {get, set} from "local-storage";
 
 function MyLikes() {
 
   const [myLikesList, setMyLikesList] = useState([]);;
 
   const getLikedList = () => {
-    Axios.get('http://localhost:5000/api/likes').then((response) => {
-      setMyLikesList(response.data)
+    Axios.get('http://localhost:5000/api/likes', {headers: {
+      Authorization: "Bearer " + ls.get("access_token")
+    }}).then((response) => {
+      myLikesList(response.data)
     })
   };
 
@@ -18,7 +21,7 @@ function MyLikes() {
         <button> Refresh </button>
       </div>
       <br/>
-      
+
       <div class="list">
         <div class="center">
           <p> Track &nbsp;</p>

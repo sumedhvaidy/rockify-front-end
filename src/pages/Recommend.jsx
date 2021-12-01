@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import Axios from 'axios';
+import ls, {get, set} from "local-storage";
 
 function Recommend() {
 
@@ -8,15 +9,21 @@ function Recommend() {
 
   const recommend = () => {
     if (type == "track") {
-      Axios.get('http://localhost:5000/api/recommend/track').then((response) => {
+      Axios.get('http://localhost:5000/api/recommend/track', {headers: {
+        Authorization: "Bearer " + ls.get("access_token")
+      }}).then((response) => {
         setRecommendList(response.data)
       })
     } else if (type == "artist") {
-      Axios.get('http://localhost:5000/api/search/artist').then((response) => {
+      Axios.get('http://localhost:5000/api/recommend/artist', {headers: {
+        Authorization: "Bearer " + ls.get("access_token")
+      }}).then((response) => {
         setRecommendList(response.data)
       })
     } else if (type == "album") {
-      Axios.get('http://localhost:5000/api/search/album').then((response) => {
+      Axios.get('http://localhost:5000/api/recommend/album', {headers: {
+        Authorization: "Bearer " + ls.get("access_token")
+      }}).then((response) => {
         setRecommendList(response.data)
       })
     }

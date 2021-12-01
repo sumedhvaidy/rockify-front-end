@@ -37,12 +37,18 @@ function Search() {
     } else if (type == "artist") {
       Axios.get('http://localhost:5000/api/search/artist', {params: {
         name: searchFor
+      },
+      headers: {
+        Authorization: "Bearer " + ls.get("access_token")
       }}).then((response) => {
         setSearchList(response.data)
       })
     } else if (type == "album") {
       Axios.get('http://localhost:5000/api/search/album', {params: {
         name: searchFor
+      },
+      headers: {
+        Authorization: "Bearer " + ls.get("access_token")
       }}).then((response) => {
         setSearchList(response.data)
       })
