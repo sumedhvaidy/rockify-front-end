@@ -63,7 +63,7 @@ function Recommend() {
 		<div className='recommend'>
 	    <h1> Recommend a track, artist, or album </h1>
       <div class="center">
-        <button> Recommend </button>
+        <button onClick={recommend}> Recommend </button>
       </div>
       <br/>
       <div class="center">
