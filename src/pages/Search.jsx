@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import Axios from 'axios';
+import ls, {get, set} from "local-storage";
 
 function Search() {
 
@@ -23,9 +24,13 @@ function Search() {
   const [valence, setValence] = useState(0);
 
   const search = () => {
+    alert(ls.get("access_token"))
     if (type == "track") {
       Axios.get('http://localhost:5000/api/search/track', {params: {
         name: searchFor
+      },
+      headers: {
+        Authorization: "Bearer " + ls.get("access_token")
       }}).then((response) => {
         setSearchList(response.data)
       })
