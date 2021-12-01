@@ -52,21 +52,40 @@ function Recommend() {
       </div>
       <br/>
 
-      <div class="list">
-        <div class="center">
-          <p> Track &nbsp;</p>
-          <p> Artist </p>
-          <input type="radio" id="like" name="preference"/>
-          <input type="radio" id="dislike" name="preference"/>
-        </div>
-      </div>
-
       {recommendList.map((val) => {
+        if (type == "track") {
           return (
             <div className = "card">
-              <h3> {val.item}</h3>
+              <div class="center">
+                <p> {val.TrackName} &nbsp; </p>
+                <p> {val.ArtistName} </p>
+                <input type="radio" id="like" name="preference"/>
+                <input type="radio" id="dislike" name="preference"/>
+              </div>
             </div>
           );
+        } else if (type == "artist") {
+          return (
+            <div className = "card">
+              <div class="center">
+                <p> {val.ArtistName} </p>
+                <input type="radio" id="like" name="preference"/>
+                <input type="radio" id="dislike" name="preference"/>
+              </div>
+            </div>
+          );
+        } else if (type == "album") {
+          return (
+            <div className = "card">
+              <div class="center">
+                <p> {val.AlbumName} &nbsp; </p>
+                <p> {val.ArtistName} </p>
+                <input type="radio" id="like" name="preference"/>
+                <input type="radio" id="dislike" name="preference"/>
+              </div>
+            </div>
+          );
+        }
         })}
 	  </div>
   );
