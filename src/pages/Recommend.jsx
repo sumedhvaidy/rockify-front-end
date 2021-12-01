@@ -57,7 +57,8 @@ function Recommend() {
           return (
             <div className = "card">
               <div class="center">
-                <p> {val.TrackName} &nbsp;</p>
+                <p> {val.TrackName} &nbsp; </p>
+                <p> {val.ArtistName} </p>
                 <input type="radio" id="like" name="preference"/>
                 <input type="radio" id="dislike" name="preference"/>
               </div>
@@ -77,7 +78,8 @@ function Recommend() {
           return (
             <div className = "card">
               <div class="center">
-                <p> {val.AlbumName} </p>
+                <p> {val.AlbumName} &nbsp; </p>
+                <p> {val.ArtistName} </p>
                 <input type="radio" id="like" name="preference"/>
                 <input type="radio" id="dislike" name="preference"/>
               </div>
