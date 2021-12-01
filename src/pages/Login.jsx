@@ -1,18 +1,18 @@
 import React, {useState, useEffect} from "react";
 import Axios from 'axios';
+import ls, {get, set} from "local-storage";
 
 function Login() {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  //
 
   const sendLogin = () => {
     Axios.post('http://localhost:5000/api/login', {
       username: username,
       password: password
-    }).then(() => {
-      alert('Login Successful')
-    })  }
+    }).then(response => ls.set("access_token", response.body.access_token))  }
 
   return (
     <div className="login">
