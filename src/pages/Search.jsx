@@ -191,9 +191,9 @@ function Search() {
               <div class="center">
                 <p> {val.TrackName} &nbsp;</p>
                 <p> {val.ArtistName} </p>
-                <input type="radio" id="like" name="preference" onClick={
+                <input type="radio" id="like" name={val.TrackId} onClick={
                   () => interact(val.TrackId, "LIKE")}/>
-                <input type="radio" id="dislike" name="preference" onClick={
+                <input type="radio" id="dislike" name={val.TrackId} onClick={
                   () => interact(val.TrackId, "DISLIKE")}/>
               </div>
             </div>
@@ -203,9 +203,9 @@ function Search() {
             <div className = "card">
               <div class="center">
                 <p> {val.ArtistName} </p>
-                <input type="radio" id="like" name="preference" onClick={
+                <input type="radio" id="like" name={val.ArtistId} onClick={
                   () => interact(val.ArtistId, "LIKE")}/>
-                <input type="radio" id="dislike" name="preference" onClick={
+                <input type="radio" id="dislike" name={val.ArtistId} onClick={
                   () => interact(val.ArtistId, "DISLIKE")}/>
               </div>
             </div>
@@ -216,15 +216,14 @@ function Search() {
               <div class="center">
                 <p> {val.AlbumName} &nbsp;</p>
                 <p> {val.ArtistName} </p>
-                <input type="button" id="like" name="preference" onClick={
+                <input type="button" id="like" name={val.AlbumId} onClick={
                   () => interact(val.AlbumId, "LIKE")}/>
-                <input type="button" id="dislike" name="preference" onClick={
+                <input type="button" id="dislike" name={val.AlbumId} onClick={
                   () => interact(val.AlbumId, "DISLIKE")}/>
               </div>
             </div>
           );
         }
-
         })}
 	  </div>
   );
