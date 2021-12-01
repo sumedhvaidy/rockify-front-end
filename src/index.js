@@ -7,14 +7,16 @@ import {
   Login,
   MyLikes,
   Recommend,
-  Search
+  Search,
+  Register
 } from "./pages";
 
 ReactDOM.render(
   <Router>
     <Navigation />
     <Routes>
-      <Route path="/" element={<Login />} />
+      <Route path="/" element={<Register />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/search" element={<Search />} />
       <Route path="/recommend" element={<Recommend />} />
       <Route path="/mylikes" element={<MyLikes />} />

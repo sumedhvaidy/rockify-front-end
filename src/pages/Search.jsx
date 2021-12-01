@@ -23,12 +23,25 @@ function Search() {
   const [valence, setValence] = useState(0);
 
   const search = () => {
-    Axios.get('http://localhost:5000/api/search', {params: {
-      searchFor: searchFor,
-      type: type
-    }}).then((response) => {
-      setSearchList(response.data)
-    })
+    if (type == "track") {
+      Axios.get('http://localhost:5000/api/search/track', {params: {
+        name: searchFor
+      }}).then((response) => {
+        setSearchList(response.data)
+      })
+    } else if (type == "artist") {
+      Axios.get('http://localhost:5000/api/search/artist', {params: {
+        name: searchFor
+      }}).then((response) => {
+        setSearchList(response.data)
+      })
+    } else if (type == "album") {
+      Axios.get('http://localhost:5000/api/search/album', {params: {
+        name: searchFor
+      }}).then((response) => {
+        setSearchList(response.data)
+      })
+    }
   };
 
   const advancedSearch = () => {
@@ -39,13 +52,15 @@ function Search() {
 		<div className='search'>
 	    <h1> Search for a track, artist, or album </h1>
       <div class="center">
-  	    <input type="text" placeholder="Search..."/>
+  	    <input type="text" placeholder="Search..." onChange = {(e) => {
+          setSearchFor(e.target.value)
+        }}/>
   	    <button onClick={search}> Search </button>
         <button onClick={advancedSearch}> Advanced Search </button>
       </div>
 	    <br></br>
       <div class="center">
-        <input type="radio" id="Track" name="type" onClick = {(e) => {
+        <input type="radio" id="track" name="type" onClick = {(e) => {
           setType("track")
         }}/>
         <label> Track </label>
@@ -53,7 +68,7 @@ function Search() {
           setType("artist")
         }}/>
         <label> Artist </label>
-        <input type="radio" id="Album" name="type" onClick = {(e) => {
+        <input type="radio" id="album" name="type" onClick = {(e) => {
           setType("album")
         }}/>
         <label> Album </label>

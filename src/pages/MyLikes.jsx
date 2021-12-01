@@ -17,6 +17,16 @@ function MyLikes() {
       <div class="center">
         <button> Refresh </button>
       </div>
+      <br/>
+      
+      <div class="list">
+        <div class="center">
+          <p> Track &nbsp;</p>
+          <p> Artist </p>
+          <input type="radio" id="like" name="preference"/>
+          <input type="radio" id="dislike" name="preference"/>
+        </div>
+      </div>
 
       {myLikesList.map((val) => {
           return (

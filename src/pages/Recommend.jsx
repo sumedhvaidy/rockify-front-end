@@ -7,12 +7,19 @@ function Recommend() {
   const [recommendList, setRecommendList] = useState([]);
 
   const recommend = () => {
-    alert(type)
-    Axios.get('http://localhost:5000/api/recommend', {params: {
-      type: type
-    }}).then((response) => {
-      setRecommendList(response.data)
-    })
+    if (type == "track") {
+      Axios.get('http://localhost:5000/api/recommend/track').then((response) => {
+        setRecommendList(response.data)
+      })
+    } else if (type == "artist") {
+      Axios.get('http://localhost:5000/api/search/artist').then((response) => {
+        setRecommendList(response.data)
+      })
+    } else if (type == "album") {
+      Axios.get('http://localhost:5000/api/search/album').then((response) => {
+        setRecommendList(response.data)
+      })
+    }
   };
 
   return (
