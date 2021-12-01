@@ -54,6 +54,40 @@ function Search() {
     }
   };
 
+  const interact = (info, interaction) => {
+    if (type == "track") {
+      Axios.post('http://localhost:5000/api/interact/track', {params: {
+        track_id: info,
+        interaction: interaction
+      },
+      headers: {
+        Authorization: "Bearer " + ls.get("access_token")
+      }}).then((response) => {
+        setSearchList(response.data)
+      })
+    } else if (type == "artist") {
+      Axios.post('http://localhost:5000/api/interact/artist', {params: {
+        artist_id: info,
+        interaction: interaction
+      },
+      headers: {
+        Authorization: "Bearer " + ls.get("access_token")
+      }}).then((response) => {
+        setSearchList(response.data)
+      })
+    } else if (type == "album") {
+      Axios.post('http://localhost:5000/api/interact/album', {params: {
+        album_id: info,
+        interaction: interaction
+      },
+      headers: {
+        Authorization: "Bearer " + ls.get("access_token")
+      }}).then((response) => {
+        setSearchList(response.data)
+      })
+    }
+  };
+
   const advancedSearch = () => {
 
   }
@@ -161,8 +195,10 @@ function Search() {
               <div class="center">
                 <p> {val.TrackName} &nbsp;</p>
                 <p> {val.ArtistName} </p>
-                <input type="radio" id="like" name="preference"/>
-                <input type="radio" id="dislike" name="preference"/>
+                <input type="radio" id="like" name="preference" onClick={
+                  interact(val.TrackId, "LIKE")}/>
+                <input type="radio" id="dislike" name="preference" onClick={
+                  interact(val.TrackId, "DISLIKE")}/>
               </div>
             </div>
           );
@@ -171,8 +207,10 @@ function Search() {
             <div className = "card">
               <div class="center">
                 <p> {val.ArtistName} </p>
-                <input type="radio" id="like" name="preference"/>
-                <input type="radio" id="dislike" name="preference"/>
+                <input type="radio" id="like" name="preference" onClick={
+                  interact(val.ArtistId, "LIKE")}/>
+                <input type="radio" id="dislike" name="preference" onClick={
+                  interact(val.ArtistId, "DISLIKE")}/>
               </div>
             </div>
           );
@@ -182,8 +220,10 @@ function Search() {
               <div class="center">
                 <p> {val.AlbumName} &nbsp;</p>
                 <p> {val.ArtistName} </p>
-                <input type="radio" id="like" name="preference"/>
-                <input type="radio" id="dislike" name="preference"/>
+                <input type="radio" id="like" name="preference" onClick={
+                  interact(val.AlbumId, "LIKE")}/>
+                <input type="radio" id="dislike" name="preference" onClick={
+                  interact(val.AlbumId, "DISLIKE")}/>
               </div>
             </div>
           );
