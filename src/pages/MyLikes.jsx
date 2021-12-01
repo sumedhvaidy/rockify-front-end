@@ -13,7 +13,10 @@ function MyLikes() {
 
   return (
     <div className='mylikes'>
-      <h1> My Likes <button> Refresh </button> </h1>
+      <h1> My Likes </h1>
+      <div class="center">
+        <button> Refresh </button>
+      </div>
 
       {myLikesList.map((val) => {
           return (
