@@ -24,7 +24,6 @@ function Search() {
   const [valence, setValence] = useState(0);
 
   const search = () => {
-    alert(ls.get("access_token"))
     if (type == "track") {
       Axios.get('http://localhost:5000/api/search/track', {params: {
         name: searchFor
@@ -155,21 +154,39 @@ function Search() {
       </div>
       <br/>
 
-      <div class="list">
-        <div class="center">
-          <p> Track &nbsp;</p>
-          <p> Artist </p>
-          <input type="radio" id="like" name="preference"/>
-          <input type="radio" id="dislike" name="preference"/>
-        </div>
-      </div>
-
       {searchList.map((val) => {
+        if (type == "track") {
           return (
             <div className = "card">
-              <h3> {val.item}</h3>
+              <div class="center">
+                <p> {val.trackName} &nbsp;</p>
+                <input type="radio" id="like" name="preference"/>
+                <input type="radio" id="dislike" name="preference"/>
+              </div>
             </div>
           );
+        } else if (type == "artist") {
+          return (
+            <div className = "card">
+              <div class="center">
+                <p> {val.ArtistName} </p>
+                <input type="radio" id="like" name="preference"/>
+                <input type="radio" id="dislike" name="preference"/>
+              </div>
+            </div>
+          );
+        } else if (type == "album") {
+          return (
+            <div className = "card">
+              <div class="center">
+                <p> {val.AlbumName} </p>
+                <input type="radio" id="like" name="preference"/>
+                <input type="radio" id="dislike" name="preference"/>
+              </div>
+            </div>
+          );
+        }
+
         })}
 	  </div>
   );
