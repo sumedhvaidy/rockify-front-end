@@ -88,6 +88,7 @@ function Recommend() {
             <div className = "card">
               <div class="center">
                 <p> {val.TrackName} &nbsp;</p>
+                <p> {val.AlbumName} &nbsp; </p>
                 <p> {val.ArtistName} </p>
                 <input type="radio" id="like" name={val.TrackId} onClick={
                   () => interact(val.TrackId, "LIKE")}/>
@@ -122,7 +123,6 @@ function Recommend() {
             </div>
           );
         }
-
         })}
 	  </div>
   );

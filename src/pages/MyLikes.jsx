@@ -84,11 +84,12 @@ function MyLikes() {
             <div className = "card">
               <div class="center">
                 <p> {val.TrackName} &nbsp;</p>
+                <p> {val.AlbumName} &nbsp; </p>
                 <p> {val.ArtistName} </p>
                 <input type="radio" id="like" name={val.TrackId} onClick={
-                  () => interact(val.TrackId, "LIKE")} checked={val.Likes == "LIKE"}/>
+                  () => interact(val.TrackId, "LIKE")}/>
                 <input type="radio" id="dislike" name={val.TrackId} onClick={
-                  () => interact(val.TrackId, "DISLIKE")} checked={val.Likes == "DISLIKE"}/>
+                  () => interact(val.TrackId, "DISLIKE")}/>
               </div>
             </div>
           );
