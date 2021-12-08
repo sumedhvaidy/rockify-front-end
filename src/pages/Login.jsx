@@ -28,7 +28,7 @@ function Login() {
       <br></br>
       <div class="center">
         <label>Password: &nbsp; </label>
-        <input type="text" name = "password" onChange = {(e) => {
+        <input type="password" name = "password" onChange = {(e) => {
           setPassword(e.target.value)
         }}/>
       </div>
