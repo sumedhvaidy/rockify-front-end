@@ -12,7 +12,14 @@ function Login() {
     Axios.post('http://localhost:5000/api/login', {
       username: username,
       password: password
-    }).then(response => {ls.set("access_token", response.data.access_token)})  }
+    }).then(response => {
+      if (response.status == 200) {
+        ls.set("access_token", response.data.access_token)
+        alert('Login Successful')
+      }
+    }).catch(error => {
+      alert('Login Failed')
+    })  }
 
   return (
     <div className="login">
